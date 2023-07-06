@@ -1,0 +1,21 @@
+.container .row {
+    padding-top: 5%;
+}
+
+.container .row .col-6 p {
+    color: #1aac83;
+    margin: auto 0;
+    padding: 7px;
+}
+
+.col-6 {
+    border-right: 1p solid black;
+    border-radius: 4px;
+    border-bottom: 1p solid black;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.icon {
+    color: black;
+    float: right;
+}

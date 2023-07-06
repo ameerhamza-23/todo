@@ -1,0 +1,21 @@
+nav ul {
+    margin-right: 10%;
+}
+
+.navbar-expand-lg {
+    background-color: #fff;
+}
+
+.navbar-brand {
+    color: #1aac83;
+    margin-left: 5%;
+}
+
+.signup {
+    margin-left: 10%;
+}
+
+.signup a {
+    border: 1px solid #1aac83;
+    border-radius: 7px;
+}

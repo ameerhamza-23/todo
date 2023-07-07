@@ -1,4 +1,7 @@
 h4 {
+   /* width: 20%;
    text-align: center;
-   padding-top: 5%;
+   margin: 0 auto;
+   padding-top: 5%; */
+   display: inline-block;
 }

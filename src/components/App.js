@@ -1,22 +1,15 @@
 import Navbar from './Navbar';
-import Date from './Datee'
-import Task from './Task'
+import AddTask from './AddTask'
+import Header from './Header'
+import Main from './Main'
 import '../css/app.css'
-import arr from './tasks'
 
 function App() {
-
-  function createTask(task) {
-      return (
-        <Task title={task}/>
-      ); 
-  }
-
   return (
     <>
       <Navbar/>
-      <Date/>
-      {arr.map(createTask)}
+      <Header/>
+      <Main/>
     </>
   );
 }

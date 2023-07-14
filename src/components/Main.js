@@ -1,24 +1,36 @@
 import Task from './Task'
-import AddTask from './AddTask'
-import arr from './tasks'
 import '../css/main.css'
+import {useEffect, useState} from 'react';
+import { useTaskContext } from '../hooks/useTaskContext';
+
+function createTask(task) {
+    return (
+      <Task title={task.title} id={task._id} />
+    ); 
+}
 
 function Main() {
 
-    function createTask(task) {
-        return (
-          <Task title={task}/>
-        ); 
-    }
+    // const [tasks, setTasks] = useState(null);
+    const { tasks, dispatch } = useTaskContext();
+
+    useEffect(()=> {
+        const fetchTasks = async ()=> {
+            const response = await fetch('/api/todo/');
+            const json = await response.json();
+            if(response.ok) {
+                // setTasks(json);
+                dispatch({type:'SET_TASKS',payload: json});
+            }
+        }
+        fetchTasks();
+    }, [])
 
     return (
          <div className="container">
              <div className="row main-row">
                  <div className="col-6">
-                     {arr.map(createTask)}
-                 </div>
-                 <div className="col-6">
-                    <AddTask/>
+                     {tasks && tasks.map(createTask)}
                  </div>
              </div>
          </div>

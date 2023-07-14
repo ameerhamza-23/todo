@@ -12,7 +12,7 @@
     margin-top: 5%;
 }
 
-.icon {
-    color: black;
+.trash-btn {
+    border: none;
     float: right;
 }

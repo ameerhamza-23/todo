@@ -1,3 +1,19 @@
 .header-row {
     padding-top: 5%;
 }
+
+.task-btn {
+    margin-left: 3%;
+    border: none;
+    background-color: #1aac83;
+    border-radius: 7px;
+    color: white;
+    padding: 5px;
+    font-size: medium;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}

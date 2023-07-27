@@ -1,12 +1,17 @@
 import '../css/signup.css'
 import {useState} from 'react'
+import Spinner from '../components/Spinner'
+import {useNavigate} from 'react-router-dom'
 
 const Signup = () => {
 
     const [creds,setCreds] = useState({name:"",email:"",password:""});
+    const [loading, setLoading] = useState(false);
+    let navigate = useNavigate();
 
     const handleSubmit = async(e)=> {
         e.preventDefault();
+        setLoading(true);
         const response = await fetch('/api/auth/register',{
             method:'POST',
             headers: {
@@ -15,9 +20,11 @@ const Signup = () => {
             body: JSON.stringify({name:creds.name,email:creds.email,password:creds.password})
         })
         const json = await response.json();
+        setLoading(false);
         if(response.ok) {
             console.log('json',json)
-            alert('registeration successful')
+            localStorage.setItem('token',json.authToken)
+            navigate('/')
         }
     }
 
@@ -41,7 +48,7 @@ const Signup = () => {
                     <label for="exampleInputPassword1">Password</label>
                     <input name="password" onChange={onChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                 </div>
-                <button type="submit" className="btn btn-primary">Register</button>
+                {loading ? <Spinner/> : <button type="submit" className="btn btn-primary">Signup</button>} 
             </form>
         </div >
     );

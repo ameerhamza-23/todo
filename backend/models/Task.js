@@ -9,6 +9,10 @@ const taskSchema = new Schema({
     },
     details :{
         type:String,
+    },
+    userid : {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
     }
 },{timestamps:true})
 

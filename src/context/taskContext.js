@@ -13,8 +13,12 @@ export const tasksReducer = (state, action) => {
                 tasks: [...state.tasks, action.payload]
             }
         case 'DELETE_TASK':
+            // const newarr = state.tasks.filter((t) => {return t._id !== action.payload._id})
+            for(let i=0;i<state.tasks.length;i++) {
+                console.log('curr task id :',state.tasks[i]._id,'\n','deletion task id : ',action.payload.DeletedTask._id)
+            }
             return {
-                tasks: state.tasks.filter((t) => t._id !== action.payload._id)
+                tasks: state.tasks.filter((t) => {return t._id !== action.payload.DeletedTask._id})
             }
         default:
             return state
@@ -23,7 +27,7 @@ export const tasksReducer = (state, action) => {
 
 export const TasksContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(tasksReducer, {
-        tasks:null    
+        tasks:null 
     })
 
     return (

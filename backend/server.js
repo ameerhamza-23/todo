@@ -12,7 +12,7 @@ app.use('/api/todo',router);
 app.use('/api/auth',auth);
 app.use(express.static(path.join(__dirname + "/public")))
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
     
 mongoose.connect(process.env.MONGO_URI)
     .then(()=> {
